@@ -17,7 +17,7 @@ const BookSection = () => {
             </div>
             <div className="grid grid-cols-1 mx-auto lg:grid-cols-3 gap-6 ">
                 {
-               books.map(book => <Book book={book} key={books.bookId}></Book>) 
+               books.map(book => <Book book={book} key={books.id}></Book>) 
                 }
             </div>   
         </div>
