@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element:<PagesToRead></PagesToRead>,
       },
       {
-        path: "/category",
+        path: "",
         element: <category></category>,
       },
       {
