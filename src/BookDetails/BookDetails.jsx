@@ -23,7 +23,7 @@ const BookDetails = () => {
 
   const handleAddRead = () =>{
     saveReadList(idInt);
-    toast('The ook is added successfully');
+    toast('The book is added successfully');
   }
 
   return (
@@ -34,7 +34,7 @@ const BookDetails = () => {
           <h1 className="text-5xl font-bold">{bookName}</h1>
           <p className="py-3 border-b-2 text-lg">By: {author}</p>
           <p className="py-3 border-b-2 text-lg">{category}</p>
-          <p className="py-3 border-b-2 text-sm py-4">
+          <p className="py-3 border-b-2 text-sm">
             <span className="font-bold">Review : </span>
             {review}
           </p>

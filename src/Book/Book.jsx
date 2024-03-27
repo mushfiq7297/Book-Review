@@ -20,7 +20,7 @@ const Book = ({ book }) => {
       <div className="card-body">
         <h2 className="card-title">
         <div className="badge text-green-500">{tags[0]}</div>
-          <div className="badge text-green-500">{tags[1]}</div>
+        <div className="badge text-green-500">{tags[1]}</div>
         </h2>
         <h2 className="text-xl font-bold">{bookName}</h2>
         <p>By: {author}</p>
