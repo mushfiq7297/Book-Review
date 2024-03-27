@@ -1,4 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  import { saveReadList } from "../Utility/LocalStorage";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -17,6 +20,11 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = book;
+
+  const handleAddRead = () =>{
+    saveReadList(idInt);
+    toast('The ook is added successfully');
+  }
 
   return (
     <div className="hero min-h-screen  my-10">
@@ -51,7 +59,7 @@ const BookDetails = () => {
             </div>
           </div>
           <div className="">
-            <a className="btn bg-white text-black border-gray-400 hover:bg-[#59C6D2] mr-2">
+            <a onClick={handleAddRead} className="btn bg-white text-black border-gray-400 hover:bg-[#59C6D2] mr-2">
               Read
             </a>
             <a className="btn  bg-white text-black  border-gray-400 hover:bg-[#59C6D2]">
@@ -60,6 +68,7 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
