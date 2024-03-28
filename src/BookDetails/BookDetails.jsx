@@ -1,7 +1,10 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-  import { saveReadList } from "../Utility/LocalStorage";
+import 'react-toastify/dist/ReactToastify.css';
+import { saveReadList } from "../Utility/LocalStorage";
+import { saveWishList } from "../Utility/LocalStorage";
+import { useState } from 'react';
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -20,10 +23,22 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = book;
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   const handleAddRead = () =>{
     saveReadList(idInt);
-    toast('The book is added successfully');
+    setButtonClicked(!buttonClicked)
+    if(!buttonClicked){
+    toast.success('The book is added to read list');
+    }
+    else{
+      toast.info("The book is already added")
+    }
+  }
+
+  const handleAddWishlist = () =>{
+     saveWishList(idInt);
+    toast('The book is added to wishlist');
   }
 
   return (
@@ -62,7 +77,7 @@ const BookDetails = () => {
             <a onClick={handleAddRead} className="btn bg-white text-black border-gray-400 hover:bg-[#59C6D2] mr-2">
               Read
             </a>
-            <a className="btn  bg-white text-black  border-gray-400 hover:bg-[#59C6D2]">
+            <a onClick={handleAddWishlist} className="btn  bg-white text-black  border-gray-400 hover:bg-[#59C6D2]">
               Wishlist
             </a>
           </div>

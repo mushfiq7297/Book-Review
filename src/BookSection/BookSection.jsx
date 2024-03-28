@@ -15,7 +15,7 @@ const BookSection = () => {
             <div>
             <h2 className="text-5xl text-center font-bold my-8">Books</h2>
             </div>
-            <div className="grid grid-cols-1 mx-auto lg:grid-cols-3 gap-6 ">
+            <div className="grid grid-cols-1 content-center lg:grid-cols-3 gap-4 ">
                 {
                books.map(book => <Book book={book} key={books.id}></Book>) 
                 }

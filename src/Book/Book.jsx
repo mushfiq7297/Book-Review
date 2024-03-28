@@ -9,8 +9,8 @@ const Book = ({ book }) => {
     rating } = book;
   return (
     <Link to={`/book/${id}`}>
-    <div className="card transition border-2 hover:border-3  hover:scale-105 border-green-200  hover:border-green-500 bg-base-100 shadow-xl p-4 w-96 h-auto mx-auto">
-      <figure className="">
+    <div className="card transition border-2 hover:border-3  hover:scale-105 border-green-200  hover:border-green-500 bg-base-100 shadow-xl p-4 w-80 h-auto mx-auto">
+      <figure className="bg-base-200 p-4 rounded-lg">
         <img
           src={image}
           alt="Shoes"

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+
 const SingleBook = ({ book }) => {
-  const {
+  const {id,
     image,
     bookName,
     author,
@@ -14,13 +15,13 @@ const SingleBook = ({ book }) => {
   return (
     <div>
       <div
-        className="relative flex flex-col max-w-2xl p-6 divide-y xl:flex-row-reverse mx-auto rounder-lg xl:divide-y-0  text-black
+        className="relative flex flex-col-reverse max-w-2xl p-6 divide-y xl:flex-row-reverse mx-auto rounder-lg xl:divide-y-0  text-black
        divide-gray-700 border-2 justify-between shadow-xl "
       >
         <div className="p-3 space-y-1 w-full">
           <h3 className="text-3xl font-semibold">{bookName}</h3>
           <p className="text-sm text-gray-800">By: {author}</p>
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
               <div className="flex">
                 <p className="text-sm text-gray-400">
                   Tag:
@@ -29,6 +30,8 @@ const SingleBook = ({ book }) => {
                   <div className="badge text-green-500">{tags[0]}</div>
                   <div className="badge text-green-500">{tags[1]}</div>
                 </h2>
+              </div>
+              <div>
                 <p className="text-sm text-gray-400">
                   <span className="">Year of publishing :</span>
                   {yearOfPublishing}
@@ -48,20 +51,24 @@ const SingleBook = ({ book }) => {
               </div>
             </div>
             <div className="flex ">
-              <div className="flex gap-4 ">
+              <div className="flex flex-col gap-4 lg:flex-row">
+                <div className="flex gap-2">
                 <p className="text-sm bg-blue-300 text-blue-600 h-8 py-1 px-3 rounded-full my-auto">
                   category : {category}
                 </p>
                 <p className="text-sm bg-orange-200 text-orange-600 h-8 py-1 px-3 rounded-full my-auto">
                   ratings : {rating}
                 </p>
-                {/* <Link to={`/book/${id}`}> */}
-                <button className=" bg-[#23BE0A] text-white hover:bg-[#59C6D2] my-4 p-2 rounded-lg">View details</button>
-                {/* </Link> */}
+                </div>
+                <div className="flex justify-center lg:justify-start">
+                <Link to={`/book/${id}`}>
+                  <button className=" bg-[#23BE0A] text-white hover:bg-[#59C6D2] my-4 p-2 rounded-lg ">View details</button>
+                </Link>
+                </div>
               </div>
             </div>
         </div>
-        <div className="flex items-center gap-3 p-3 justify-start">
+        <div className="flex items-center gap-3 p-3 justify-center lg:justify-start">
           <img
             alt=""
             src={image}

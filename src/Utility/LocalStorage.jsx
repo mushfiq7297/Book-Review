@@ -6,18 +6,37 @@ const getStoredReadList = () =>{
     return [];
 }
 
+const getStoredWishList = () =>{
+    const storedWishList = localStorage.getItem('wish-list');
+    if(storedWishList){
+        return JSON.parse(storedWishList);
+    }
+    return [];
+}
 
 
 
-
-const saveReadList = id =>{
+function saveReadList(id) {
     const getStoredReadLists = getStoredReadList();
-    const exists = getStoredReadLists.find(bookId => bookId === id)
-    if(!exists){
+    const exists = getStoredReadLists.find(bookId => bookId === id);
+    if (!exists) {
         getStoredReadLists.push(id);
-        localStorage.setItem('read-list', JSON.stringify(getStoredReadLists))
+        localStorage.setItem('read-list', JSON.stringify(getStoredReadLists));
     }
 
 
+
 }
-export{getStoredReadList, saveReadList}
+
+const saveWishList = id =>{
+    const getStoredWishLists = getStoredWishList();
+    const exists = getStoredWishLists.find(bookId => bookId === id)
+    if(!exists){
+        getStoredWishLists.push(id);
+        localStorage.setItem('wish-list', JSON.stringify(getStoredWishLists))
+    }
+
+}
+
+
+export{getStoredReadList, saveReadList, getStoredWishList, saveWishList}
